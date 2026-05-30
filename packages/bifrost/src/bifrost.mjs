@@ -48,21 +48,43 @@ const out = (s = '') => process.stdout.write(s + '\n')
 const ts  = ()       => C.gray(new Date().toISOString().slice(11, 19))
 
 // ── Config ───────────────────────────────────────────────────────────────────
-const PORT   = parseInt(process.env.BIFROST_PORT  ?? '7071')
-const MODEL  = process.env.BIFROST_MODEL           ?? 'claude-sonnet-4-6'
-const API_KEY = process.env.ANTHROPIC_API_KEY      ?? ''
+const PORT      = parseInt(process.env.BIFROST_PORT  ?? '7071')
+const PROVIDER  = process.env.BIFROST_PROVIDER       ?? 'groq'   // groq | anthropic
+const API_KEY   = process.env.ANTHROPIC_API_KEY      ?? ''
+const GROQ_KEY  = process.env.GROQ_API_KEY           ?? ''
+const MODEL     = process.env.BIFROST_MODEL          ?? (PROVIDER === 'groq' ? 'llama3-70b-8192' : 'claude-sonnet-4-6')
 
-if (!API_KEY) {
-  out(C.red('  ✗ ANTHROPIC_API_KEY not set — BIFROST cannot spawn sessions'))
-  out(C.gray('    Set ANTHROPIC_API_KEY=your_key and restart'))
-  process.exit(1)
+// Validate keys
+if (PROVIDER === 'anthropic' && !API_KEY) {
+  out(C.red('  ✗ ANTHROPIC_API_KEY not set')); process.exit(1)
+}
+if (PROVIDER === 'groq' && !GROQ_KEY) {
+  out(C.red('  ✗ GROQ_API_KEY not set')); process.exit(1)
 }
 
-const client = new Anthropic({ apiKey: API_KEY })
+const client = PROVIDER === 'anthropic' ? new Anthropic({ apiKey: API_KEY }) : null
 
 // ── Session store ─────────────────────────────────────────────────────────────
 // Each session: { id, packet, systemPrompt, messages[], status, created, tokens }
 const sessions = new Map()
+
+// ── LLM call — Groq or Anthropic ─────────────────────────────────────────────
+async function callLLM(systemPrompt, messages) {
+  if (PROVIDER === 'groq') {
+    const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method:  'POST',
+      headers: { 'Authorization': `Bearer ${GROQ_KEY}`, 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ model: MODEL, max_tokens: 8096,
+        messages: [{ role: 'system', content: systemPrompt }, ...messages] }),
+      signal:  AbortSignal.timeout(30000),
+    })
+    if (!res.ok) throw new Error(`Groq ${res.status}`)
+    return (await res.json()).choices[0].message.content ?? ''
+  }
+  // Anthropic
+  const r = await client.messages.create({ model: MODEL, max_tokens: 8096, system: systemPrompt, messages })
+  return r.content[0]?.text ?? ''
+}
 
 // ── Build system prompt from Bifrost State Packet ─────────────────────────────
 function buildSystemPrompt(packet) {
@@ -132,14 +154,7 @@ app.post('/bifrost/handoff', async (req, res) => {
   out(`${ts()}   ${C.gray(`system prompt: ~${systemTokens} tokens`)}`)
 
   try {
-    const response = await client.messages.create({
-      model:      MODEL,
-      max_tokens: 8096,
-      system:     systemPrompt,
-      messages:   [{ role: 'user', content: directive }],
-    })
-
-    const reply      = response.content[0]?.text ?? ''
+    const reply       = await callLLM(systemPrompt, [{ role: 'user', content: directive }])
     const totalTokens = systemTokens + estimateTokens(directive) + estimateTokens(reply)
 
     sessions.set(sessionId, {
@@ -188,14 +203,7 @@ app.post('/bifrost/continue', async (req, res) => {
   try {
     session.messages.push({ role: 'user', content: message })
 
-    const response = await client.messages.create({
-      model:      MODEL,
-      max_tokens: 8096,
-      system:     session.systemPrompt,
-      messages:   session.messages,
-    })
-
-    const reply = response.content[0]?.text ?? ''
+    const reply = await callLLM(session.systemPrompt, session.messages)
     session.messages.push({ role: 'assistant', content: reply })
     session.tokens_used += estimateTokens(message) + estimateTokens(reply)
 
@@ -249,9 +257,10 @@ out(C.purple(C.bold('  ║      B I F R O S T — HANDOFF ORCHESTRATOR  v1.0    
 out(C.purple(C.bold('  ║   async multiplicity · clean slate · < 10k tokens       ║')))
 out(C.purple(C.bold('  ╚══════════════════════════════════════════════════════════╝')))
 out()
-out(C.gray(`  model  : ${MODEL}`))
-out(C.gray(`  port   : ${PORT}`))
-out(C.gray(`  key    : ${API_KEY ? '✓ loaded' : '✗ missing'}`))
+out(C.gray(`  provider: ${PROVIDER}`))
+out(C.gray(`  model   : ${MODEL}`))
+out(C.gray(`  port    : ${PORT}`))
+out(C.gray(`  key     : ${PROVIDER === 'groq' ? (GROQ_KEY ? '✓ groq loaded' : '✗ missing') : (API_KEY ? '✓ anthropic loaded' : '✗ missing')}`))
 out()
 out(C.cyan('  Endpoints:'))
 out(C.gray('    POST /bifrost/handoff       ← receive packet from ABZU'))
