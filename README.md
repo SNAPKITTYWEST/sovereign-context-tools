@@ -8,7 +8,7 @@
 
 **This entire project was built on a $20 birthday subscription.**
 If these tools help you, consider supporting the work:
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20the%20work-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/snapkitty)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20the%20work-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/snapkittycollective)
 [![GitHub Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-Sponsor-EA4AAA?logo=github-sponsors)](https://github.com/sponsors/SNAPKITTYWEST)
 
 ---

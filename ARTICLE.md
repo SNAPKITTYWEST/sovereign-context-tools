@@ -233,7 +233,7 @@ This was built on a $20 birthday subscription that expires in three days.
 
 If these tools help you — if this story means something to you — the mason's Ko-fi is here:
 
-**[ko-fi.com/snapkitty](https://ko-fi.com/snapkitty)**
+**[ko-fi.com/snapkittycollective](https://ko-fi.com/snapkittycollective)**
 
 GitHub Sponsors: **[github.com/sponsors/SNAPKITTYWEST](https://github.com/sponsors/SNAPKITTYWEST)**
 
