@@ -1,0 +1,27 @@
+{
+  "name": "@snapkitty/bifrost",
+  "version": "1.0.0",
+  "description": "BIFROST — Context Handoff Orchestrator. Receives Bifrost State Packets from ABZU, spawns fresh Claude sessions with verified state under 10k tokens. Enables true async multiplicity.",
+  "type": "module",
+  "main": "src/bifrost.mjs",
+  "bin": {
+    "bifrost": "src/bifrost.mjs"
+  },
+  "scripts": {
+    "start": "node src/bifrost.mjs"
+  },
+  "keywords": [
+    "claude", "anthropic", "context", "handoff", "async-multiplicity",
+    "bifrost", "llm", "sovereign", "edualc", "abzu", "worm"
+  ],
+  "author": "Ahmad Ali Parr + Jessica Westerhoff",
+  "license": "MIT",
+  "engines": { "node": ">=18.0.0" },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.52.0",
+    "express": "^4.21.2"
+  },
+  "peerDependencies": {
+    "@snapkitty/abzu": ">=1.0.0"
+  }
+}

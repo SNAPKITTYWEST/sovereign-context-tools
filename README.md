@@ -19,6 +19,7 @@
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-EA4AAA?logo=github-sponsors&logoColor=white)](https://github.com/sponsors/SNAPKITTYWEST)
 [![npm](https://img.shields.io/badge/npm-%40snapkitty%2Fedaulc-CB3837?logo=npm)](https://www.npmjs.com/package/@snapkitty/edaulc)
 [![npm](https://img.shields.io/badge/npm-%40snapkitty%2Fabzu-CB3837?logo=npm)](https://www.npmjs.com/package/@snapkitty/abzu)
+[![npm](https://img.shields.io/badge/npm-%40snapkitty%2Fbifrost-CB3837?logo=npm)](https://www.npmjs.com/package/@snapkitty/bifrost)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
@@ -77,8 +78,13 @@ npx @snapkitty/edaulc
 # The context GC — subscribes to linter events
 npm install @snapkitty/abzu
 
-# Run both together
-ABZU_URL=http://127.0.0.1:7070 npx @snapkitty/edaulc
+# The handoff orchestrator — spawns fresh Claude sessions
+npm install @snapkitty/bifrost
+
+# Run the full stack
+ABZU_URL=http://127.0.0.1:7070 npx @snapkitty/edaulc   # terminal 1
+node node_modules/@snapkitty/abzu/src/abzu.mjs           # terminal 2
+ANTHROPIC_API_KEY=your_key node node_modules/@snapkitty/bifrost/src/bifrost.mjs  # terminal 3
 ```
 
 ---
