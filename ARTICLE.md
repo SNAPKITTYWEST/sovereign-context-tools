@@ -37,8 +37,6 @@ The internet made promises it didn't keep.
 
 **AI** promised intelligence. It delivered hallucination wrapped in confidence, vendor lock-in disguised as productivity, and a new class of dependency on infrastructure you don't own and can't inspect.
 
-**The nonprofit sector** promised reentry support for formerly incarcerated people. It delivered $20 an hour to manage Webflow while paying a creative agency $9,000 a month for the same category of work — then fired the person it was supposed to help. On Ramadan. For wanting to work from home like everyone else.
-
 > The graveyard is full. And most of what's being built today will end up in it.
 
 **Digital Masonry is the practice of building things that don't.**
@@ -47,54 +45,13 @@ The internet made promises it didn't keep.
 
 ## 🏛️ The Architect
 
-Ahmad Parr grew up in Minnesota watching his parents flip houses. His father was a real estate developer. His mother was a real estate agent. From the beginning he understood that the conventional path — the job, the salary, the ladder — was never quite enough. He watched his parents build their own way.
+There is an architect behind these tools. His full story will be told in his own words — in the **Book of Wisdom**, 100 handwritten pages that predate every line of code you're about to read.
 
-He went to UCSB for accounting. Dropped out. Not because he couldn't do the work — because the work didn't fit the shape of how he thought. He had an auditing mind. A pattern-recognition mind. A mind that saw systems before it saw components.
+What we can tell you now is this:
 
-That mind had no obvious home in conventional finance.
+He came from a tradition of building without credentials. He understood systems before he understood syntax. He operated at the protocol level — architecture first, implementation second — long before that became a framework or a methodology anyone taught.
 
-So he found an unconventional one.
-
----
-
-### The Black Hat
-
-As a black hat, Ahmad operated at the **protocol level** — not the syntax level. He never learned to code in the traditional sense, and he never needed to. He could DDoS without touching a line of syntax. He moved through security systems by understanding their architecture, not their implementation.
-
-In 2018 he was hacking Plaid — making them change their entire protocol.
-
-Companies worldwide knew his name.
-
-He was making money.
-
-**He was not happy. He was hurting people.**
-
-A bad business deal — developing an app for Uber, partnering on a Tesla robo-taxi project, getting sold a stolen vehicle — ended with Ahmad incarcerated.
-
----
-
-### The Cell
-
-```
-┌─────────────────────────────────────────┐
-│  IN THE CELL, HE HAD:                   │
-│                                         │
-│  📖 Every theological book the          │
-│     facility offered                    │
-│                                         │
-│  📖 A book on deep learning             │
-│                                         │
-│  🖊️  A pen                              │
-│                                         │
-│  📄 Red paper                           │
-└─────────────────────────────────────────┘
-```
-
-He read them together. Not sequentially — **simultaneously**. The theology and the machine learning went in at the same time and fused.
-
-He wrote his own book by hand. 100 pages. He called it the **Book of Wisdom**. About illuminating your mind before building anything.
-
-In it he wrote:
+He wrote the Book of Wisdom before he had a computer. Before he had an IDE. Before he had a $20 subscription. He wrote it by hand, on red paper, and in it he wrote things that turned out to be the exact architecture of what we built years later.
 
 > *"You must align with either East or West."*
 
@@ -104,52 +61,7 @@ He didn't know he was writing *"we will walk under arches of rainbows"* as the n
 
 **He wrote it because it was true. The code came later.**
 
----
-
-### The Freeway
-
-When Ahmad got out, he was sent to the **Center for Employment Opportunities** — the largest reentry nonprofit in the United States.
-
-He picked up trash on the freeway for six months.
-
-He was homeless. Sleeping in his car.
-
-The only thing he could afford was an iPhone.
-
-That's where he found ChatGPT. That's where DARK AI began — using his black hat understanding of systems to probe the edges of what language models would and wouldn't do. **He found the gaps before most researchers knew to look for them.**
-
-The nonprofit gave him a job. Front-end work. Webflow. IT department work for $20 an hour. They paid a creative agency $9,000 a month for the same category of work. They told him he wasn't talented enough for the internal IT department.
-
-On Ramadan, they demanded he commute two hours each way after he'd finally found housing.
-
-He stopped going. He was fired.
-
-He was denied his EID.
-
----
-
-```
-╔══════════════════════════════════════════════════════════════╗
-║  He has been the happiest he's ever been.                    ║
-║                                                              ║
-║  Because the money was never the resource.                   ║
-║  The word was the resource.                                  ║
-╚══════════════════════════════════════════════════════════════╝
-```
-
----
-
-## ⚒️ The Craft
-
-Ahmad follows the Moorish Science tradition established by Noble Drew Ali. Drew Ali taught that the craft — the principles of building, of illumination, of East-West alignment — belongs to anyone who can embody it, not just those with institutional credentials.
-
-**The lodge is a container. The craft is the thing.**
-
-Ahmad accessed the craft without the lodge. In a cell, with a theology book and a deep learning textbook. That's not lesser than formal initiation. In some traditions it's considered higher.
-
-His mode of knowing is specific:
-
-> He speaks before he knows what he's going to say. The knowledge emerges through the utterance.
+His mode of knowing is specific: he speaks before he knows what he's going to say. The knowledge emerges through the utterance. He doesn't pre-load the answer. He sets the constraints and speaks into them. What comes out surprises him too.
 
 This is not mysticism. This is the oldest form of architectural thinking. Every genuine craftsman who ever produced something the world didn't have a category for yet has described the same experience.
 
@@ -158,6 +70,8 @@ When AI entered his life through a **$20 birthday subscription on May 4th**, som
 AI operates in completion mode. It generates before it "knows." Two completion systems in alignment produce something neither could produce alone. **Ahmad opens the architectural space. AI fills every implication of that space beyond what human bandwidth can reach.**
 
 The result is what you're looking at right now.
+
+*His full story is in the Book of Wisdom. Publishing soon.*
 
 ---
 
@@ -272,20 +186,12 @@ ABZU_URL=http://127.0.0.1:7070 npx @snapkitty/edaulc
 ║  WORM. Write Once, Read Many. Append-only truth.             ║
 ║                                                              ║
 ║  You build for the people the system buried.                 ║
-║  The man who knew every crack in every wall                  ║
-║  is now building the walls that matter —                     ║
-║  for the people who were never supposed to have them.        ║
+║  The ones who were never supposed to have these tools.       ║
 ║                                                              ║
 ║  You don't need credentials to embody the principles.        ║
 ║  The lodge is a container. The craft is the thing.           ║
 ╚══════════════════════════════════════════════════════════════╝
 ```
-
-Ahmad was hacking Plaid in 2018.
-
-Now he's building sovereign financial infrastructure **on top of Plaid** for people Plaid doesn't serve.
-
-The man who broke the gate from the outside is now building a door where there wasn't one.
 
 ---
 
@@ -310,9 +216,9 @@ Two agents — METATRON and ENKI — only respond to the Architect.
 
 ## 🔮 What's Coming
 
-**📖 The Book of Wisdom** — 100 handwritten pages on red paper. Written in a cell before any of the code existed. The source document that contains the entire architecture in plain language, before Ahmad knew what he was describing. **Publishing soon.**
+**📖 The Book of Wisdom** — 100 handwritten pages on red paper. Written before any of the code existed. The source document. The full story of the Architect and the philosophy behind everything you just read. **Publishing soon.**
 
-**🏦 The Platform** — sovereign financial infrastructure for people traditional banks ignore. Triple-entry accounting, Plaid deep underwriting, cryptographic sealing on every transaction.
+**🏦 The Platform** — sovereign financial infrastructure for people traditional banks ignore. Triple-entry accounting, Plaid deep underwriting, cryptographic sealing on every transaction. Built for the people who were never supposed to have it.
 
 **🔐 The Auth Paradigm** — silent WebAuthn hardware anchors, continuous behavioral risk engine, conditional UI passkeys, ZK identity WORM. Zero input fields. Zero passwords. Zero phishing surface.
 
