@@ -6,6 +6,15 @@
 
 ---
 
+**This entire project was built on a $20 birthday subscription.**
+If these tools help you, consider supporting the work:
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20the%20work-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/snapkitty)
+[![GitHub Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-Sponsor-EA4AAA?logo=github-sponsors)](https://github.com/sponsors/SNAPKITTYWEST)
+
+---
+
+---
+
 ## The Problem
 
 Every developer working with Claude hits the same wall. You're debugging a complex module. Your context fills with stack traces, back-and-forth conversation, dependency warnings, trial errors. The agent starts losing coherence. You start a fresh chat and lose everything you built.
