@@ -1,0 +1,22 @@
+{
+  "name": "@snapkitty/edaulc",
+  "version": "2.0.0",
+  "description": "EDUALC — Shadow Terminal Agent. Deterministic 5-pass linter for sovereign codebases. CLAUDE creates forward. EDUALC verifies backward.",
+  "type": "module",
+  "main": "src/edaulc.mjs",
+  "bin": {
+    "edaulc": "src/edaulc.mjs"
+  },
+  "scripts": {
+    "start": "node src/edaulc.mjs"
+  },
+  "keywords": [
+    "linter", "claude", "llm", "context", "sovereign", "deterministic", "ast", "ere"
+  ],
+  "author": "Ahmad Ali Parr + Jessica Westerhoff",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {}
+}

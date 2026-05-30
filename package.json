@@ -1,0 +1,16 @@
+{
+  "name": "sovereign-context-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EDUALC + ABZU — linter-gated context sovereign for LLM development",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces --if-present",
+    "pack:all": "npm pack --workspaces"
+  },
+  "author": "Ahmad Ali Parr + Jessica Westerhoff (Bel Esprit Trust)",
+  "license": "MIT"
+}
