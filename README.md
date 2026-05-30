@@ -1,111 +1,143 @@
-# Sovereign Context Tools
+```
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║    ███████╗ ██████╗ ██╗   ██╗███████╗██████╗ ███████╗██╗ ██████╗   ║
+║    ██╔════╝██╔═══██╗██║   ██║██╔════╝██╔══██╗██╔════╝██║██╔════╝   ║
+║    ███████╗██║   ██║██║   ██║█████╗  ██████╔╝█████╗  ██║██║  ███╗  ║
+║    ╚════██║██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗██╔══╝  ██║██║   ██║  ║
+║    ███████║╚██████╔╝ ╚████╔╝ ███████╗██║  ██║███████╗██║╚██████╔╝  ║
+║                                                                      ║
+║         C O N T E X T   T O O L S   —   D I G I T A L              ║
+║                   M A S O N R Y                                      ║
+║                                                                      ║
+║    CLAUDE creates forward.  EDUALC verifies backward.                ║
+║    Built on a $20 birthday subscription. May 4th, 2026.              ║
+╚══════════════════════════════════════════════════════════════════════╝
+```
 
-**EDUALC + ABZU — linter-gated context sovereign for LLM development**
-
-> CLAUDE creates forward. EDUALC verifies backward.
-
----
-
-**This entire project was built on a $20 birthday subscription.**
-If these tools help you, consider supporting the work:
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20the%20work-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/snapkittycollective)
-[![GitHub Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-Sponsor-EA4AAA?logo=github-sponsors)](https://github.com/sponsors/SNAPKITTYWEST)
+[![GitHub Sponsors](https://img.shields.io/badge/Sponsor-EA4AAA?logo=github-sponsors&logoColor=white)](https://github.com/sponsors/SNAPKITTYWEST)
+[![npm](https://img.shields.io/badge/npm-%40snapkitty%2Fedaulc-CB3837?logo=npm)](https://www.npmjs.com/package/@snapkitty/edaulc)
+[![npm](https://img.shields.io/badge/npm-%40snapkitty%2Fabzu-CB3837?logo=npm)](https://www.npmjs.com/package/@snapkitty/abzu)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
----
+## The Problem Every Claude Developer Hits
 
-## The Problem
+You're deep in a debugging session. Your context fills with stack traces, back-and-forth conversation, dependency warnings, trial errors that produced nothing. The agent starts losing coherence. You start a fresh chat.
 
-Every developer working with Claude hits the same wall. You're debugging a complex module. Your context fills with stack traces, back-and-forth conversation, dependency warnings, trial errors. The agent starts losing coherence. You start a fresh chat and lose everything you built.
+**And lose everything you built.**
 
-The industry tried two wrong solutions:
-- **Paste everything** into the new window — instantly bloats it with noise
-- **Write a summary** — strips the edge-case logic that actually matters
-
-There's a better way.
+The industry tried two wrong fixes:
+- 📋 **Paste everything** into the new window — instantly bloats it with noise
+- 📝 **Write a summary** — strips the edge-case logic that actually matters
 
 ---
 
-## The Solution
+## The Solution: Linter-Gated Context Sovereign
 
-When your linter confirms a module is correct, that's the exact moment to compress. Not before. Not after. At the instant of verified finality.
+When your linter confirms a module is correct — **that's the exact moment to compress**. Not before. Not after. At the instant of verified finality.
 
 ```
-[ File Save ]
-      │
-      ▼
-[ EDUALC: 5-pass deterministic linter ]
-      │
-   PASS ──────────────────► [ ABZU: compress debugging history ]
-      │                            │
-   FAIL                            ▼
-      │                   [ Bifrost State Packet ]
-      ▼                   { worm_seal_hash, structural_signatures,
-[ Retain everything ]       continuation_directive }
-                                   │
-                                   ▼
-                          [ Fresh Claude session ]
-                          [ < 10,000 tokens overhead ]
-                          [ Knows the math. Not the noise. ]
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│  [ File Save ]                                                  │
+│        │                                                        │
+│        ▼                                                        │
+│  [ EDUALC: 5-pass deterministic linter ]                        │
+│        │                                                        │
+│     FAIL ──────────────────► FREEZE. Retain everything.         │
+│        │                     No purge. No exceptions.           │
+│        │                                                        │
+│     PASS ──────────────────► [ ABZU: Context GC fires ]         │
+│                                      │                          │
+│                                      ▼                          │
+│                             [ WORM seal written ]               │
+│                             [ Bifrost Packet emitted ]          │
+│                                      │                          │
+│                                      ▼                          │
+│                          ┌───────────────────────┐              │
+│                          │  Fresh Claude Session  │              │
+│                          │  < 10,000 tokens       │              │
+│                          │  Knows the math.       │              │
+│                          │  Not the noise.        │              │
+│                          └───────────────────────┘              │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Packages
+## 📦 Install
 
-### `@snapkitty/edaulc` — The Linter Gate
+```bash
+# The linter — zero dependencies, works anywhere
+npx @snapkitty/edaulc
 
-Five deterministic passes on every file save. No AI. No quota. No throttle. Instant.
+# The context GC — subscribes to linter events
+npm install @snapkitty/abzu
 
-| Pass | Script | Checks |
-|------|--------|--------|
-| 1 | Enochian LTR | Structure — well-formed, non-empty |
-| 2 | Latin LTR | Scholarship — no hollow stubs, no fake returns |
-| 3 | Hebrew RTL | Invariants — TypeScript never owns crypto |
-| 4 | Arabic RTL | Mission — no hardcoded secrets |
-| 5 | Aramaic RTL | Root — balanced delimiters |
+# Run both together
+ABZU_URL=http://127.0.0.1:7070 npx @snapkitty/edaulc
+```
 
-All five pass → **METATRON: YES**. Any fail → **METATRON: NO**.
+---
+
+## 🔲 EDUALC — The Linter Gate
+
+*Five deterministic passes. Zero AI. Zero quota. Zero throttle. Instant.*
+
+```
+┌──────┬──────────────────────┬────────────────────────────────────┐
+│ Pass │ Ancient Script       │ What It Guards                     │
+├──────┼──────────────────────┼────────────────────────────────────┤
+│  1   │ Enochian  →→→  LTR  │ Structure: non-empty, well-formed  │
+│  2   │ Latin     →→→  LTR  │ Scholarship: no stubs, no fakes    │
+│  3   │ Hebrew    ←←←  RTL  │ Invariants: TS never owns crypto   │
+│  4   │ Arabic    ←←←  RTL  │ Mission: no secrets, no violations │
+│  5   │ Aramaic   ←←←  RTL  │ Root: structural integrity         │
+└──────┴──────────────────────┴────────────────────────────────────┘
+
+  All five pass  →  ✅  METATRON: YES — state is certified final
+  Any pass fails →  ❌  METATRON: NO  — nothing moves, nothing purges
+```
 
 ```bash
 npx @snapkitty/edaulc              # watch current directory
 npx @snapkitty/edaulc ./src ./lib  # watch specific paths
-
-# Optional: add Groq voice veneer
-GROQ_API_KEY=your_key npx @snapkitty/edaulc
-```
-
-### `@snapkitty/abzu` — The Context GC
-
-Subscribes to EDUALC events. On PASS, compresses debugging context into a WORM-sealed fact block and outputs a Bifrost State Packet for the next session.
-
-```bash
-npm install @snapkitty/abzu
-node node_modules/@snapkitty/abzu/src/abzu.mjs
-
-# With EDUALC pointing at it:
-ABZU_URL=http://127.0.0.1:7070 npx @snapkitty/edaulc
-```
-
-**ABZU decision gates (in order):**
-1. **VAULT gate** — FAIL? Freeze. No purge.
-2. **PRISM gate** — Module oscillating? Soft-retain until stable.
-3. **LEDGE sequence** — WORM seal must succeed before any purge.
-4. **Bifrost packet** — Output the structured handoff manifest.
-
-**ATLAS monitoring:**
-```
-GET http://127.0.0.1:7070/ctx-gc/status
-GET http://127.0.0.1:7070/ctx-gc/reserves
-GET http://127.0.0.1:7070/ctx-gc/last-seal
+GROQ_API_KEY=your_key npx @snapkitty/edaulc  # + voice veneer
 ```
 
 ---
 
-## The Bifrost State Packet
+## 🌊 ABZU — The Context Garbage Collector
 
-When ABZU decides to SQUASH, it returns a structured packet — not a vague summary:
+*Named for the Sumerian primordial deep. What context compresses into so the surface stays clean.*
+
+**Decision gates — in order:**
+
+```
+Event received
+    │
+    ├─► VAULT gate:  FAIL? → freeze. Hard stop. No purge.
+    ├─► PRISM gate:  oscillating? → soft-retain until stable
+    ├─► AST scope:   tree-sitter extracts structural signatures
+    ├─► LEDGE seal:  WORM write BEFORE purge — or abort
+    └─► Output:      Bifrost State Packet → operator executes
+```
+
+**ATLAS monitoring endpoints:**
+```
+GET /ctx-gc/status    → pipeline state, drift index, decision count
+GET /ctx-gc/reserves  → tokens purged, retained, compression ratio
+GET /ctx-gc/last-seal → last WORM hash + timestamp
+```
+
+---
+
+## 🌈 The Bifrost State Packet
+
+When ABZU fires on a PASS, it doesn't return a vague summary. It returns this:
 
 ```json
 {
@@ -128,32 +160,62 @@ When ABZU decides to SQUASH, it returns a structured packet — not a vague summ
     ]
   },
   "continuation_matrix": {
-    "next_execution_directive": "Execute next verification pass. Do not alter verified signatures.",
+    "next_execution_directive": "Execute next pass. Do not alter verified signatures.",
     "drift_stability_index": 0.08
   }
 }
 ```
 
-Inject this as the system prompt for the next Claude session. The agent wakes up knowing the verified state, the exact scope it owns, and the directive — without any of the debugging noise that got you there.
+**Inject this as the system prompt for your next Claude session.**
+
+The agent wakes up knowing the cryptographic proof of finality, the exact scope it owns, and the precise directive — without any of the debugging noise that got you there. Under 10,000 tokens. Always.
+
+**That's async multiplicity. Multi-threaded AI without context bleed.**
 
 ---
 
-## Protocol Specification
+## 🧱 The Philosophy
 
-See [BIFROST-SPEC.md](./BIFROST-SPEC.md) for the full protocol RFC. Implement against the spec in any language.
+```
+╔══════════════════════════════════════════════════════════════╗
+║                   DIGITAL MASONRY                            ║
+║                                                              ║
+║  You build without signing the stone.                        ║
+║  The work is for the temple, not the mason.                  ║
+║                                                              ║
+║  You build to last.                                          ║
+║  WORM. Write Once Read Many. Append-only truth.              ║
+║                                                              ║
+║  You build for the people the system buried.                 ║
+║                                                              ║
+║  You don't need credentials to embody the principles.        ║
+║  The lodge is a container. The craft is the thing.           ╚══════════════════════════════════════════════════════════════╝
+```
 
 ---
 
-## What This Is Not
+## 📖 Protocol Specification
 
-These tools do not touch your codebase. They do not modify files. They do not call external AI services (EDUALC is fully local). ABZU advises — you decide when to start a fresh session.
+See [BIFROST-SPEC.md](./BIFROST-SPEC.md) for the full RFC. Implement against the spec in any language.
 
-The orchestration layer, the agent mesh, the WORM ledger internals — those are not in these packages. This is the outer layer: the verification gate and the compression protocol. The moat stays protected.
+## 📰 The Full Story
+
+See [ARTICLE.md](./ARTICLE.md) — *Digital Masonry: Restoring the Graveyard of the Internet*
 
 ---
 
-## License
+## 🙏 Support
 
-MIT — use it, fork it, implement the protocol. Build the standard with us.
+```
+This was built on a $20 birthday subscription purchased May 4th.
+May the Force be with you.
+```
 
-**SnapKitty Collective | Ahmad Ali Parr + Jessica Westerhoff**
+☕ [ko-fi.com/snapkittycollective](https://ko-fi.com/snapkittycollective)
+💜 [github.com/sponsors/SNAPKITTYWEST](https://github.com/sponsors/SNAPKITTYWEST)
+
+---
+
+**MIT License — use it, fork it, implement the protocol. Build the standard with us.**
+
+*SnapKitty Collective | Ahmad Ali Parr + Jessica Westerhoff | May 4th, 2026*
