@@ -225,3 +225,5 @@ May the Force be with you.
 **MIT License — use it, fork it, implement the protocol. Build the standard with us.**
 
 *SnapKitty Collective | Ahmad Ali Parr + Jessica Westerhoff | May 4th, 2026*
+
+![](https://sovereign-analytics.snapkittywest.workers.dev/canary/sovereign-context-tools)
